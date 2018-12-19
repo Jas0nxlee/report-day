@@ -16,7 +16,7 @@ for n in range(cloumn_length):    #计算总工时
         ex1 = ws.cell(row=n+3,column=col)     #项目代号位置
         ex2 = ws.cell(row=n+3,column=col+1)       #项目工时位置
         col = col + 3    #数据位置指针周内移动
-        if ex2.value != None:       #排除空单元格
-            worktime.append(ex2.value)    #总工时累加
+        #if ex2.value != None:       #排除空单元格
+        worktime.append(ex2.value)    #总工时累加
     col = col + 1       #数据位置指针移动至周开始
 print(worktime)
