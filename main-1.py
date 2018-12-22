@@ -2,13 +2,12 @@ import openpyxl
 wb = openpyxl.load_workbook('in.xlsx')
 ws2 = wb.create_sheet()
 ws = wb.active
-workall =[]
 worktime = 0
 null = ''
 cloumn_length = len(list(ws.rows))-2      #总表长度
 
 
-#——————————————————————————————————汇总项目/工时 及计算总工时———————————————————————————————————————
+#——————————————————————————————————             总工时———————————————————————————————————————
 for n in range(cloumn_length):    #计算总工时
     col = 10
     for x in range(5):      #每周7次工时累加
@@ -17,15 +16,15 @@ for n in range(cloumn_length):    #计算总工时
         col = col + 3
         if  ex2.value != null and ex2.value != None:       #排除空单元格
             worktime += float(ex2.value)    #总工时累加
-            workall.append(ex1.value)
-            workall.append(ex2.value)
-print(workall)
 print(worktime)
 
 
 #—————————————————————————————————————个人项目工时列表————————————————————————————————————————
+all = []
 aa = []
 bbtmp = []
+worklist = []
+allworktime = 0
 for n in range(cloumn_length):
     ex1 = ws.cell(row=n+3,column=1)
     ex2 = ws.cell(row=n+3,column=2)
@@ -43,11 +42,17 @@ for n in range(cloumn_length):
                     ex6 = ws.cell(row=p+3,column=col+2)
                     col = col + 3
                     if  ex6.value != null and ex6.value != None:       #排除
+                        allworktime += float(ex6.value)
                         aa.append(ex5.value)
                         aa.append(ex6.value)
-        print(aa)
+        aa.insert(2,allworktime)
+        all.append(aa)
         aa = []
+        allworktime = 0
+#print(all)
 
-
-#—————————————————————————————————————个人项目工时列表————————————————————————————————————————
+#—————————————————————————————————————————————————————————————————————————————
+for n in range(len(all)):
+    aaa = all[n]
+    print(aaa)
     
