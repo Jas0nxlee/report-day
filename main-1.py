@@ -40,8 +40,8 @@ for n in range(cloumn_length):
         aa.append(ex2.value)
         bbtmp.append(ex1.value)
         for p in range(cloumn_length):
-            ex3 = ws.cell(row=p+4,column=1)
-            ex4 = ws.cell(row=p+4,column=2)
+            ex3 = ws.cell(row=p+3,column=1)
+            ex4 = ws.cell(row=p+3,column=2)
             if ex3.value == ex1.value:
                 col = 10
                 for x in range(5):
@@ -52,11 +52,12 @@ for n in range(cloumn_length):
                         allworktime += round(float(ex6.value),2)
                         aa.append(ex5.value)
                         aa.append(ex6.value)
+
         aa.insert(2,allworktime)
         all.append(aa)
         aa = []
         allworktime = 0
-print(all)
+
 
 #—————————————————————————————————单人工时占比—————————————————————————————————
 
@@ -94,7 +95,7 @@ for n in range(len(all)):
                xx = pj.index(indx2)
                yy = worknameout.index(indx2)
                datarowout[yy] = works[xx]
-    print(datarowout)
+#    print(datarowout)
     ws2.append(datarowout)
 wb.save(r'out.xlsx')
 
