@@ -1,3 +1,4 @@
+
 import openpyxl
 wb = openpyxl.load_workbook('in.xlsx')
 ws2 = wb.create_sheet()
@@ -45,8 +46,8 @@ for n in range(cloumn_length):
             if ex3.value == ex1.value:
                 col = 10
                 for x in range(5):
-                    ex5 = ws.cell(row=p+3,column=col+1)
-                    ex6 = ws.cell(row=p+3,column=col+2)
+                    ex5 = ws.cell(row=p+4,column=col+1)
+                    ex6 = ws.cell(row=p+4,column=col+2)
                     col = col + 3
                     if ex6.value != null and ex6.value != None:
                         allworktime += round(float(ex6.value),2)
