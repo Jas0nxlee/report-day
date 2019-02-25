@@ -58,7 +58,7 @@ for n in range(cloumn_length):
         all.append(aa)
         aa = []
         allworktime = 0
-print(all)
+#print(all)
 
 
 #—————————————————————————————————单人工时占比—————————————————————————————————
@@ -99,6 +99,6 @@ for n in range(len(all)):
                datarowout[yy] = works[xx]
     #print(datarowout)
     ws2.append(datarowout)
-#wb.save(r'out.xlsx')
+wb.save(r'out.xlsx')
 
 
